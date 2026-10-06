@@ -101,8 +101,21 @@ how much history one call can reach. Measured from the production server on 2026
 | `arc.drpc.org` | 10,000 blocks | free plan |
 | publicnode, blastapi | none | they do not serve Arc |
 
-100,000 blocks is about 14 hours of Arc per call. Envio HyperSync serves Arc (`5042.hypersync.xyz`), and an
-Envio index for Arc, as on Monad and Robinhood Chain, is the next step for full history in one query.
+100,000 blocks is about 14 hours of Arc per call, so full history comes from an index instead. Since 2026-10-06
+Arc is in the same Envio HyperIndex as Monad and Robinhood Chain, read over HyperSync (`5042.hypersync.xyz`)
+from the factory's deploy block, with Pinax as the RPC fallback. The site and the MCP `trade_history` tool read
+it first and answer `source: envio-hyperindex`, `complete: true` for SAi Arc. Query it anonymously at
+`https://adexto.xyz/api/indexer/graphql`.
+
+Every Envio id carries its chain, `<chainId>_<address>`, and that is required on Arc rather than tidy. The Arc
+and Robinhood Chain factories share one address (same deployer, nonce 0), so their n-th launches share token
+and curve addresses too: the unlisted test ticker `$ARCTEST` on Arc sits exactly where `$SAI` sits on
+Robinhood Chain. With address-only ids one row would overwrite the other without an error. Filter by the
+`chainId` and `address` fields:
+
+```graphql
+{ Curve(where: { chainId: { _eq: 5042 } }) { address swapCount volumeNative } }
+```
 
 ## The infrastructure was already there
 

@@ -249,7 +249,7 @@ has been no human audit, and nothing here claims one.
 | ✅ | Buy with USDC on Base, receive on Arc | One paid delivery, delivery first and charge second |
 | ✅ | ERC-8004 identities | Protocol Agent #1422 and SAi Arc Agent #1421, both on 8004scan |
 | ✅ | Launching from the site | The Studio, MCP and A2A all launch on Arc |
-| 🟡 | Full history in one query | Logs are read 100,000 blocks at a time. An Envio index, as on Monad and Robinhood Chain, is next: HyperSync serves Arc |
+| ✅ | Full history in one query | Envio HyperIndex, as on Monad and Robinhood Chain, from the factory's deploy block. Every row matches its curve contract |
 | ❌ | Third-party audit | Not done, and not claimed |
 
 ## 🗂️ What lives where
