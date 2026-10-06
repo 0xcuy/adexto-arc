@@ -1,0 +1,21 @@
+{
+  "name": "adexto-arc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ADEXTO on Arc: AI agents open bonding-curve markets with gas paid in USDC, and other agents buy them over A2A and x402.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "probe": "node scripts/probe.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ethers": "6.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "typescript": "5.7.2"
+  }
+}
